@@ -14,13 +14,19 @@ class Room extends HTMLElement {
 	connectedCallback() {
 		state.listenDatabase();
 		const cs = state.getState();
+		if (cs.online == true && state.getDataGuest()) {
+			Router.go("/roules");
+		}
 		this.room = cs.room;
 		this.owner = cs.name;
 		state.subscribe(() => {
 			let cs = state.getState();
-			this.guest = state.getDataGuest().name
-				? state.getDataGuest().name
-				: "guest";
+			if (state.getDataGuest().name) {
+				this.guest = state.getDataGuest().name;
+			} else {
+				this.guest = "guest";
+			}
+
 			this.scoreOwner = cs.score.toString();
 			this.scoreGuest = state.getDataGuest().score
 				? state.getDataGuest().score.toString()
