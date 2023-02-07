@@ -21,7 +21,6 @@ class Room extends HTMLElement {
 			this.guest = state.getDataGuest().name
 				? state.getDataGuest().name
 				: "guest";
-			// this.scoreOwner = state.getScore();
 			this.scoreOwner = cs.score.toString();
 			this.scoreGuest = state.getDataGuest().score
 				? state.getDataGuest().score.toString()
@@ -34,9 +33,9 @@ class Room extends HTMLElement {
 
 		this.render();
 	}
-	// disconnectedCallback() {
-	// 	state.offLine(false, () => {});
-	// }
+	disconnectedCallback() {
+		state.connectionStatus(false, () => {});
+	}
 	render() {
 		this.shadow.innerHTML = `   
     <div class="home">

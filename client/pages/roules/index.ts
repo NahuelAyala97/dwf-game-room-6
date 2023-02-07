@@ -19,7 +19,7 @@ customElements.define(
 		}
 		connectedCallback() {
 			const cs = state.getState();
-			console.log(cs, "roules");
+
 			this.room = cs.room;
 			this.owner = cs.name;
 			this.guest = state.getDataGuest().name;

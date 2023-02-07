@@ -44,7 +44,7 @@ class Score extends HTMLElement {
 		const button = this.shadow.querySelector(".button");
 		button?.addEventListener("click", (e) => {
 			state.addMove("");
-			Router.go("/room");
+			Router.go("/roules");
 		});
 
 		const buttonReset = this.shadow.querySelector(".reset");
@@ -55,7 +55,6 @@ class Score extends HTMLElement {
 
 	setResult() {
 		const result = state.whoWin();
-		console.log(result);
 		const resultPage = this.shadow.querySelector(".results") as any;
 		const imgEl = this.shadow.querySelector(".results-img") as any;
 
@@ -70,10 +69,6 @@ class Score extends HTMLElement {
 			resultPage.textContent = "EMPATE";
 			Router.go("/wait");
 		}
-		//else if (result == "error") {
-		// 	resultPage?.classList.add("error");
-		// 	resultPage.textContent = "ERROR";
-		// }
 	}
 
 	render() {

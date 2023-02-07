@@ -28,7 +28,6 @@ const state = {
 
 			onValue(rtdbRef, (snapshot) => {
 				const value = snapshot.val();
-				console.log(value);
 				cs.rtdbData = value.currentGame;
 				this.setState(cs);
 			});
