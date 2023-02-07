@@ -3,7 +3,7 @@ import { ref, onValue } from "firebase/database";
 
 let URL_API_BASE;
 if (process.env.NODE_ENV == "production") {
-	URL_API_BASE = "https://dwf-chat-room.herokuapp.com";
+	URL_API_BASE = "https://stone-paper-or-scissors.onrender.com";
 } else {
 	URL_API_BASE = "http://localhost:3000";
 }
